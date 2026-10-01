@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ELV-Oreo</string>
+    <string name="project_subtitle">Project Informasi Snack &amp; Gizi</string>
+    <string name="btn_my_project">My Project</string>
+
+    <string name="snack_title">Oreo Original</string>
+    <string name="nutrition_header">Informasi Gizi</string>
+    <string name="serving_size">Takaran Saji: 3 biskuit (28.5g)</string>
+    <string name="nutrients">
+        Energi Total: 140 kcal\n
+        Lemak Total: 6g\n
+        Lemak Jenuh: 3g\n
+        Protein: 1g\n
+        Karbohidrat Total: 20g\n
+        Gula: 10g\n
+        Garam (Natrium): 95mg
+    </string>
+</resources>
