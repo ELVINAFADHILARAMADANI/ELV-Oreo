@@ -10,9 +10,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnMyProject = findViewById<Button>(R.id.btnMyProject)
-        btnMyProject.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
+        val btnDetail = findViewById<Button>(R.id.btnDetail)
+        val btnWebSawit = findViewById<Button>(R.id.btnWebSawit)
+
+        // Buka Halaman Catat Panen (CatatPanenActivity)
+        btnDetail.setOnClickListener {
+            val intent = Intent(this, CatatPanenActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Buka Halaman Web (WebActivity)
+        btnWebSawit.setOnClickListener {
+            val intent = Intent(this, WebActivity::class.java)
             startActivity(intent)
         }
     }

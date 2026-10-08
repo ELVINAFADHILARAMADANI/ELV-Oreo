@@ -3,55 +3,78 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F3F4F6">
 
-    <androidx.cardview.widget.CardView
+    <!-- Header / Toolbar Tanpa Tombol Back -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:cardUseCompatPadding="true">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#12203A"
+        app:title="SawitMON"
+        app:titleTextColor="#FFFFFF" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:gravity="center_horizontal">
 
+            <!-- Logo SawitMON -->
             <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:contentDescription="Icon Cookie"
-                android:src="@drawable/oreo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/app_name"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/project_subtitle"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btnMyProject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/imgLogo"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/btn_my_project" />
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/logosawit"
+                android:scaleType="fitCenter" />
+
+            <!-- Judul Selamat Datang -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang, Petani!"
+                android:textColor="#12203A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kelola hasil panen kelapa sawit Anda"
+                android:textColor="#6B7280"
+                android:textSize="14sp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Tombol 1: Catat Panen (Cokelat Bata) -->
+            <Button
+                android:id="@+id/btnDetail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Catat Hasil Panen"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:backgroundTint="#B44B1A"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Tombol 2: Web Sawit (Amber) -->
+            <Button
+                android:id="@+id/btnWebSawit"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Portal Informasi Sawit"
+                android:textColor="#12203A"
+                android:textSize="16sp"
+                android:backgroundTint="#F5A524" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 </LinearLayout>
