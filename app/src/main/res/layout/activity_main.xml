@@ -73,7 +73,19 @@
                 android:text="Portal Informasi Sawit"
                 android:textColor="#12203A"
                 android:textSize="16sp"
-                android:backgroundTint="#F5A524" />
+                android:backgroundTint="#F5A524"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Tombol 3: Logout -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Logout"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:backgroundTint="#B44B1A"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
