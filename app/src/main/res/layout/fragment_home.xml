@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo SawitMON -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logosawit"
+            android:scaleType="fitCenter" />
+
+        <!-- Judul Selamat Datang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang, Petani!"
+            android:textColor="#12203A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kelola hasil panen kelapa sawit Anda"
+            android:textColor="#6B7280"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Tombol 1: Catat Panen -->
+        <Button
+            android:id="@+id/btnDetail"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Catat Hasil Panen"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#B84A1A"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Tombol 2: Web Sawit -->
+        <Button
+            android:id="@+id/btnWebSawit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Portal Informasi Sawit"
+            android:textColor="#12203A"
+            android:textSize="16sp"
+            android:backgroundTint="#F5A524"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Tombol 3: Logout -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#B84A1A"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
