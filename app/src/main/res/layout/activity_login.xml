@@ -78,4 +78,14 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
+    <!-- Tombol Register With Gmail (Soal 1) -->
+    <Button
+        android:id="@+id/btnRegisterGmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#EA4335"
+        android:text="Register With Gmail"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </LinearLayout>
