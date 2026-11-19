@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F4F6"
@@ -14,10 +15,10 @@
         <!-- Logo SawitMON -->
         <ImageView
             android:id="@+id/imgLogo"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="12dp"
             android:src="@drawable/logosawit"
             android:scaleType="fitCenter" />
 
@@ -37,7 +38,77 @@
             android:text="Kelola hasil panen kelapa sawit Anda"
             android:textColor="#6B7280"
             android:textSize="14sp"
-            android:layout_marginBottom="32dp" />
+            android:layout_marginBottom="20dp" />
+
+        <!-- FITUR 2: CARD TARGET PANEN BULANAN (DENGAN TOMBOL UBAH TARGET) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Target Panen Bulanan"
+                    android:textColor="#12203A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Tombol Kecil Ubah Target -->
+                <TextView
+                    android:id="@+id/btnUbahTarget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="Ubah"
+                    android:textColor="#2563EB"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="4dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvTargetStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terkumpul: 0 kg / Target: 5.000 kg"
+                android:textColor="#6B7280"
+                android:textSize="12sp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Visual Progress Bar -->
+            <ProgressBar
+                android:id="@+id/pbTargetPanen"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="#2563EB"
+                android:backgroundTint="#E2E8F0"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvPersentaseTarget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pencapaian: 0%"
+                android:textColor="#2563EB"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <!-- Tombol 1: Catat Panen -->
         <Button

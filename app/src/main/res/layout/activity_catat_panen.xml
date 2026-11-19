@@ -42,16 +42,50 @@
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Ditambahkan ID etBeratPanen di sini -->
+            <!-- Input Jumlah Panen (kg) -->
             <EditText
                 android:id="@+id/etBeratPanen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Jumlah Panen (kg)"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
+
+            <!-- FITUR 1: Input Harga TBS per Kg (Dinamis) -->
+            <EditText
+                android:id="@+id/etHargaTBS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga TBS per Kg (Rp)"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- FITUR 1: Tombol Hitung Estimasi -->
+            <Button
+                android:id="@+id/btnHitungEstimasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hitung Estimasi Pendapatan"
+                android:backgroundTint="#12203A"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp" />
+
+            <!-- FITUR 1: Hasil Estimasi Pendapatan -->
+            <TextView
+                android:id="@+id/tvHasilEstimasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estimasi Pendapatan: Rp 0"
+                android:textColor="#111827"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:background="#E5E7EB"
+                android:layout_marginBottom="16dp" />
 
             <EditText
                 android:id="@+id/etTanggalPanen"

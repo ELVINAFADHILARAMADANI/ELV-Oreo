@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F3F4F6">
+    android:background="#F8FAFC">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarPanen"
@@ -17,63 +17,209 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Title Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Form Catat Hasil Panen"
+                android:textColor="#0F172A"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Isi sesuai hasil timbangan"
-                android:textColor="#111827"
-                android:textSize="14sp"
-                android:layout_marginBottom="16dp" />
+                android:text="Masukkan rincian data timbangan dan estimasi harga"
+                android:textColor="#64748B"
+                android:textSize="13sp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Input Blok Kebun -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blok Kebun"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
 
             <EditText
                 android:id="@+id/etBlokKebun"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Blok Kebun"
+                android:layout_height="48dp"
+                android:hint="Contoh: Blok A1"
+                android:textColorHint="#94A3B8"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
                 android:background="#FFFFFF"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp" />
+                android:paddingHorizontal="14dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Input Jumlah Panen (kg) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Panen (Kg)"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
 
             <EditText
                 android:id="@+id/etBeratPanen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Jumlah Panen (kg)"
-                android:inputType="number"
+                android:layout_height="48dp"
+                android:hint="0"
+                android:textColorHint="#94A3B8"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
+                android:inputType="numberDecimal"
                 android:background="#FFFFFF"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp" />
+                android:paddingHorizontal="14dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- SECTION KALKULATOR ESTIMASI (CARD DESIGN) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#EFF6FF"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kalkulator Estimasi Pendapatan"
+                    android:textColor="#1E40AF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga TBS Harian (Rp/Kg)"
+                    android:textColor="#334155"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <EditText
+                    android:id="@+id/etHargaTBS"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Contoh: 2500"
+                    android:textColorHint="#94A3B8"
+                    android:textColor="#0F172A"
+                    android:textSize="14sp"
+                    android:inputType="numberDecimal"
+                    android:background="#FFFFFF"
+                    android:paddingHorizontal="14dp"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btnHitungEstimasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Hitung Estimasi"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#2563EB"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Display Hasil Estimasi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#DBEAFE"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estimasi Pendapatan:"
+                        android:textColor="#1E3A8A"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvHasilEstimasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="#1E3A8A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Input Tanggal -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Panen"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
 
             <EditText
                 android:id="@+id/etTanggalPanen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tanggal"
+                android:layout_height="48dp"
+                android:hint="DD/MM/YYYY"
+                android:textColorHint="#94A3B8"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
                 android:background="#FFFFFF"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp" />
+                android:paddingHorizontal="14dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Input Catatan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan (Opsional)"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
 
             <EditText
                 android:id="@+id/etCatatan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Catatan (opsional)"
+                android:layout_height="48dp"
+                android:hint="Tambahkan catatan jika ada"
+                android:textColorHint="#94A3B8"
+                android:textColor="#0F172A"
+                android:textSize="14sp"
                 android:background="#FFFFFF"
-                android:padding="12dp"
-                android:layout_marginBottom="20dp" />
+                android:paddingHorizontal="14dp"
+                android:layout_marginBottom="24dp" />
 
+            <!-- Tombol Simpan Utama -->
             <Button
                 android:id="@+id/btnSimpan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Simpan Panen"
+                android:layout_height="52dp"
+                android:text="Simpan Data Panen"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:backgroundTint="#B44B1A"
                 android:textColor="#FFFFFF" />
 

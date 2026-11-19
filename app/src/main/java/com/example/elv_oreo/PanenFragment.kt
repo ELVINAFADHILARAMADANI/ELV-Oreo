@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -21,10 +22,31 @@ class PanenFragment : Fragment() {
 
         val etBlok = view.findViewById<EditText>(R.id.etBlokKebun)
         val etBerat = view.findViewById<EditText>(R.id.etBeratPanen)
+        val etHargaTBS = view.findViewById<EditText>(R.id.etHargaTBS)
+        val btnHitungEstimasi = view.findViewById<Button>(R.id.btnHitungEstimasi)
+        val tvHasilEstimasi = view.findViewById<TextView>(R.id.tvHasilEstimasi)
+
         val etTanggal = view.findViewById<EditText>(R.id.etTanggalPanen)
         val etCatatan = view.findViewById<EditText>(R.id.etCatatan)
         val btnSimpan = view.findViewById<Button>(R.id.btnSimpan)
 
+        // Logika Hitung Estimasi Pendapatan
+        btnHitungEstimasi?.setOnClickListener {
+            val beratStr = etBerat?.text.toString().trim()
+            val hargaStr = etHargaTBS?.text.toString().trim()
+
+            if (beratStr.isEmpty() || hargaStr.isEmpty()) {
+                Toast.makeText(requireContext(), "Harap isi jumlah berat panen dan harga TBS harian!", Toast.LENGTH_SHORT).show()
+            } else {
+                val berat = beratStr.toDoubleOrNull() ?: 0.0
+                val harga = hargaStr.toDoubleOrNull() ?: 0.0
+                val totalPendapatan = berat * harga
+
+                tvHasilEstimasi?.text = String.format("Rp %,.2f", totalPendapatan)
+            }
+        }
+
+        // Logika Simpan Panen
         btnSimpan?.setOnClickListener {
             val blok = etBlok?.text.toString().trim()
             val berat = etBerat?.text.toString().trim()
@@ -34,7 +56,6 @@ class PanenFragment : Fragment() {
             if (blok.isEmpty() || berat.isEmpty()) {
                 Toast.makeText(requireContext(), "Harap isi Blok Kebun dan Jumlah Panen!", Toast.LENGTH_SHORT).show()
             } else {
-                // Simpan data panen ke SharedPreferences
                 val sharedPref = requireActivity().getSharedPreferences("data_panen_pref", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.putString("last_blok_kebun", blok)
@@ -45,11 +66,13 @@ class PanenFragment : Fragment() {
 
                 Toast.makeText(requireContext(), "Data panen berhasil disimpan!", Toast.LENGTH_SHORT).show()
 
-                // Bersihkan SELURUH form input setelah berhasil disimpan
+                // Bersihkan form
                 etBlok?.text?.clear()
                 etBerat?.text?.clear()
+                etHargaTBS?.text?.clear()
                 etTanggal?.text?.clear()
                 etCatatan?.text?.clear()
+                tvHasilEstimasi?.text = "Rp 0"
             }
         }
 
