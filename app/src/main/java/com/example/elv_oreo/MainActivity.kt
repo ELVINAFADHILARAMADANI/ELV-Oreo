@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             val selectedFragment: Fragment = when (item.itemId) {
                 R.id.nav_home -> HomeFragment()
-                R.id.nav_panen -> PanenFragment() // Atau Fragment fitur panen kamu
-                R.id.nav_profile -> ProfileFragment() // Halaman Profil Developer
+                R.id.nav_panen -> PanenFragment()
+                R.id.nav_riwayat -> RiwayatFragment()
+                R.id.nav_profile -> ProfileFragment()
                 else -> HomeFragment()
             }
             loadFragment(selectedFragment)

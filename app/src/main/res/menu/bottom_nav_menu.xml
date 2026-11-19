@@ -9,7 +9,12 @@
     <item
         android:id="@+id/nav_panen"
         android:icon="@drawable/ic_assignment"
-        android:title="Catat Panen" />
+        android:title="Catat" />
+
+    <item
+        android:id="@+id/nav_riwayat"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Riwayat" />
 
     <item
         android:id="@+id/nav_profile"

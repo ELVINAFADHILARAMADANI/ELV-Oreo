@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_card_grid"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Kotak Warna Kategori Sesuai Wireframe Layar 5 -->
+    <View
+        android:id="@+id/viewBadgeWarna"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="#B84A1A" />
+
+    <!-- Judul Aktivitas & Rincian Blok/Berat -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemJenis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panen"
+            android:textColor="#0F172A"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvItemDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Blok A1 - 120 kg"
+            android:textColor="#64748B"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Waktu / Tanggal di Sebelah Kanan -->
+    <TextView
+        android:id="@+id/tvItemTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08:30"
+        android:textColor="#94A3B8"
+        android:textSize="11sp" />
+
+</LinearLayout>

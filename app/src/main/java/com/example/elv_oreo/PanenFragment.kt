@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SimpleAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -20,7 +22,7 @@ class PanenFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_panen, container, false)
 
-        val etBlok = view.findViewById<EditText>(R.id.etBlokKebun)
+        val spinnerBlok = view.findViewById<Spinner>(R.id.spinnerBlokKebun)
         val etBerat = view.findViewById<EditText>(R.id.etBeratPanen)
         val etHargaTBS = view.findViewById<EditText>(R.id.etHargaTBS)
         val btnHitungEstimasi = view.findViewById<Button>(R.id.btnHitungEstimasi)
@@ -29,6 +31,23 @@ class PanenFragment : Fragment() {
         val etTanggal = view.findViewById<EditText>(R.id.etTanggalPanen)
         val etCatatan = view.findViewById<EditText>(R.id.etCatatan)
         val btnSimpan = view.findViewById<Button>(R.id.btnSimpan)
+
+        // Penerapan SimpleAdapter untuk pilihan Blok Kebun
+        val dataBlok = listOf(
+            mapOf("blok" to "Blok A1", "info" to "Luas 2,5 Ha • Sawit Tenera"),
+            mapOf("blok" to "Blok A2", "info" to "Luas 3,0 Ha • Sawit Tenera"),
+            mapOf("blok" to "Blok B1", "info" to "Luas 2,0 Ha • Sawit Marihat"),
+            mapOf("blok" to "Blok C1", "info" to "Luas 4,0 Ha • Sawit PPKS")
+        )
+
+        val simpleAdapter = SimpleAdapter(
+            requireContext(),
+            dataBlok,
+            android.R.layout.simple_list_item_2,
+            arrayOf("blok", "info"),
+            intArrayOf(android.R.id.text1, android.R.id.text2)
+        )
+        spinnerBlok.adapter = simpleAdapter
 
         // Logika Hitung Estimasi Pendapatan
         btnHitungEstimasi?.setOnClickListener {
@@ -48,13 +67,16 @@ class PanenFragment : Fragment() {
 
         // Logika Simpan Panen
         btnSimpan?.setOnClickListener {
-            val blok = etBlok?.text.toString().trim()
+            @Suppress("UNCHECKED_CAST")
+            val selectedItem = spinnerBlok.selectedItem as Map<String, String>
+            val blok = selectedItem["blok"] ?: "Blok A1"
+
             val berat = etBerat?.text.toString().trim()
             val tanggal = etTanggal?.text.toString().trim()
             val catatan = etCatatan?.text.toString().trim()
 
-            if (blok.isEmpty() || berat.isEmpty()) {
-                Toast.makeText(requireContext(), "Harap isi Blok Kebun dan Jumlah Panen!", Toast.LENGTH_SHORT).show()
+            if (berat.isEmpty()) {
+                Toast.makeText(requireContext(), "Harap isi Jumlah Panen (Kg)!", Toast.LENGTH_SHORT).show()
             } else {
                 val sharedPref = requireActivity().getSharedPreferences("data_panen_pref", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
@@ -64,10 +86,10 @@ class PanenFragment : Fragment() {
                 editor.putString("last_catatan_panen", catatan)
                 editor.apply()
 
-                Toast.makeText(requireContext(), "Data panen berhasil disimpan!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Data panen $blok berhasil disimpan! Cek tab Riwayat.", Toast.LENGTH_SHORT).show()
 
                 // Bersihkan form
-                etBlok?.text?.clear()
+                spinnerBlok.setSelection(0)
                 etBerat?.text?.clear()
                 etHargaTBS?.text?.clear()
                 etTanggal?.text?.clear()

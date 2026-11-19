@@ -1,147 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F4F6"
-    android:padding="20dp">
+    android:background="#F3F4F6">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:orientation="vertical">
 
-        <!-- Logo SawitMON -->
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="12dp"
-            android:src="@drawable/logosawit"
-            android:scaleType="fitCenter" />
-
-        <!-- Judul Selamat Datang -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- HEADER DENGAN BACKGROUND DRAWABLE -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selamat Datang, Petani!"
-            android:textColor="#12203A"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:background="@drawable/bg_header_home"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="28dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kelola hasil panen kelapa sawit Anda"
-            android:textColor="#6B7280"
-            android:textSize="14sp"
-            android:layout_marginBottom="20dp" />
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logosawit" />
 
-        <!-- FITUR 2: CARD TARGET PANEN BULANAN (DENGAN TOMBOL UBAH TARGET) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat Datang, Petani!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Kelola aktivitas &amp; hasil panen kebun"
+                    android:textColor="#D8F3DC"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- KONTEN UTAMA -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:padding="16dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="20dp">
+            android:padding="20dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:text="Target Panen Bulanan"
-                    android:textColor="#12203A"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <!-- Tombol Kecil Ubah Target -->
-                <TextView
-                    android:id="@+id/btnUbahTarget"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="Ubah"
-                    android:textColor="#2563EB"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:padding="4dp" />
-            </RelativeLayout>
-
+            <!-- GRID RINGKASAN AKTIVITAS (SESUAI DESAIN BERANDA PETANI) -->
             <TextView
-                android:id="@+id/tvTargetStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Terkumpul: 0 kg / Target: 5.000 kg"
-                android:textColor="#6B7280"
-                android:textSize="12sp"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Visual Progress Bar -->
-            <ProgressBar
-                android:id="@+id/pbTargetPanen"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:max="100"
-                android:progress="0"
-                android:progressTint="#2563EB"
-                android:backgroundTint="#E2E8F0"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvPersentaseTarget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pencapaian: 0%"
-                android:textColor="#2563EB"
-                android:textSize="13sp"
+                android:layout_marginBottom="10dp"
+                android:text="Ringkasan Aktivitas Kebun"
+                android:textColor="#12203A"
+                android:textSize="15sp"
                 android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- Grid 1: Pemupukan -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_card_grid"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pemupukan"
+                        android:textColor="#6B7280"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCountPupuk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="12 Kali"
+                        android:textColor="#1B4332"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Grid 2: Penyiraman -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_card_grid"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Penyiraman"
+                        android:textColor="#6B7280"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCountSiram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="15 Kali"
+                        android:textColor="#2563EB"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Grid 3: Panen -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_card_grid"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Panen"
+                        android:textColor="#6B7280"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCountPanen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="8 Kali"
+                        android:textColor="#B84A1A"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Grid 4: Perawatan Lain -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/bg_card_grid"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Perawatan Lain"
+                        android:textColor="#6B7280"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCountLain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="15 Kali"
+                        android:textColor="#D97706"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </GridLayout>
+
+            <!-- CARD TARGET PANEN BULANAN -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_card_grid"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Target Panen Bulanan"
+                        android:textColor="#12203A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnUbahTarget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="4dp"
+                        android:text="Ubah"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvTargetStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Terkumpul: 0 kg / Target: 5.000 kg"
+                    android:textColor="#6B7280"
+                    android:textSize="12sp" />
+
+                <ProgressBar
+                    android:id="@+id/pbTargetPanen"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="#E2E8F0"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="#2563EB" />
+
+                <TextView
+                    android:id="@+id/tvPersentaseTarget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pencapaian: 0%"
+                    android:textColor="#2563EB"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- GRID MENU AKSI CEPAT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Menu Cepat"
+                android:textColor="#12203A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <Button
+                    android:id="@+id/btnDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:backgroundTint="#B84A1A"
+                    android:text="Catat Panen"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnWebSawit"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:backgroundTint="#F5A524"
+                    android:text="Portal Sawit"
+                    android:textColor="#12203A"
+                    android:textSize="14sp" />
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:backgroundTint="#DC2626"
+                android:text="Logout"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
-
-        <!-- Tombol 1: Catat Panen -->
-        <Button
-            android:id="@+id/btnDetail"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Catat Hasil Panen"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:backgroundTint="#B84A1A"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Tombol 2: Web Sawit -->
-        <Button
-            android:id="@+id/btnWebSawit"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Portal Informasi Sawit"
-            android:textColor="#12203A"
-            android:textSize="16sp"
-            android:backgroundTint="#F5A524"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Tombol 3: Logout -->
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Logout"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:backgroundTint="#B84A1A"
-            android:textStyle="bold" />
-
     </LinearLayout>
 </ScrollView>
